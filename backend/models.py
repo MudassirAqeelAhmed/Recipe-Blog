@@ -26,3 +26,19 @@ class Recipe(db.Model):
         self.title = title
         self.description = description
         db.session.commit()
+
+class User(db.Model):
+    """
+    class User:
+        id:int primary key
+        username: str
+        email:str 
+        password: str
+    """
+    id = db.Column(db.Integer(), primary_key=True)
+    username = db.Column(db.String(25), nullable=False, unique=True)
+    email = db.Column(db.String(120), nullable=False)
+    password = db.Column(db.String(60), nullable=False)
+
+    def __repr__(self) -> str:
+        return "<User: %s>" % self.username
